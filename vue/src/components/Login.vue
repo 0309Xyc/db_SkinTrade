@@ -4,17 +4,17 @@
     <form @submit.prevent="handleLogin">
       <div class="form-group">
         <label for="username"  >Username:</label>
-        <input type="text" id="username" v-model="username"  required>
+        <input type="text" id="username" v-model="User.username"  required>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" required>
+        <input type="password" id="password" v-model="User.password" required>
       </div>
 
     </form>
-    <ElButton type="primary"><router-link to="/MainContent" @click="handleLogin" >登录</router-link></ElButton>
+    <button @click="handleLogin" >登录</button>
     <div v-if="error" class="error-message">{{ error }}</div>
-    <ElButton type="primary"><router-link to="/RegisterPage" @click="ClickToRegisterPage">注册</router-link></ElButton>
+    <button @click="ClickToRegisterPage">注册</button>
   </div>
 
 
@@ -22,40 +22,41 @@
 </template>
 
 <script>
-import {RouterView,RouterLink} from "vue-router";
-import {ElButton} from "element-plus";
+import request from "@/utils/request.js";
+import router from "@/router";
+
 export default {
 
   name: 'LoginForm',
 
   data() {
     return {
-      username: '',
-      password: '',
+      User: {},
       error: '',
       isLogin: true
     }
   },
   methods: {
     handleLogin() {
-      // 管理员账号和密码
-      const adminUsername = 'root';
-      const adminPassword = 'password';
+      request.post("/User/login",this.User).then(res =>{
+        // 管理员账号和密码
+        const adminUsername = 'root';
+        const adminPassword = 'root';
 
-      if (this.username === adminUsername && this.password === adminPassword) {
-        this.isLogin=false;
-        // 登录成功, 跳转到主页面
-
-      } else if (this.username === 'admin' && this.password === 'password') {
-        // 普通用户登录成功, 跳转到主页面
-        this.isLogin=false
-
-      } else {
-        this.error = 'Invalid username or password';
-      }
+        if(this.User.username === adminUsername && this.User.password === adminPassword){//管理员登录
+          this.isLogin=false
+          router.push({path:'/MainContent'});
+        } else if(res.code===1){//用户登录
+          this.isLogin=false
+          router.push({path:'/MainContent'});
+        } else {
+          this.error = '账号或密码错误';
+        }
+      })
     },
 
     ClickToRegisterPage(){
+      router.push({path:'/RegisterPage'});
       this.isLogin=false
     }
   }
@@ -95,7 +96,16 @@ input {
   border-radius: 4px;
 }
 
-
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #ddd;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
 
 button:hover {
   background-color: #0056b3;
