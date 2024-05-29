@@ -1,8 +1,10 @@
 package com.example.controller;
 
 import com.example.common.Result;
+import com.example.pojo.Params;
 import com.example.pojo.User;
 import com.example.service.UserService;
+import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,4 +35,11 @@ public class UserController {
         userService.add(user);
         return Result.success();
     }
+
+    @GetMapping("/search")
+    public Result findBySearch(Params params) {
+        PageInfo<User> info = userService.findBySearch(params);
+        return Result.success(info);
+    }
+
 }

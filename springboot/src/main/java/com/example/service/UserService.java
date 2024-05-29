@@ -2,7 +2,10 @@ package com.example.service;
 
 import com.example.exception.CustomException;
 import com.example.mapper.UserMapper;
+import com.example.pojo.Params;
 import com.example.pojo.User;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,13 @@ public class UserService {
 
     @Resource
     private UserMapper userMapper;
+
+    public PageInfo<User> findBySearch(Params params) {
+        //分页
+        PageHelper.startPage(params.getPageNum(),params.getPageSize());
+        List<User> list = userMapper.findBySearch(params);
+        return PageInfo.of(list);
+    }
 
     public List<User> getUser() {
         return userMapper.getUser();
