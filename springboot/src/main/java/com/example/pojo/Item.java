@@ -14,6 +14,8 @@ public class Item {
     private String skin_name;
     @Column(name="weapon_type")
     private String weapon_type;
+    @Column(name="image")
+    private byte[] image;
 
     public Item() {
     }
@@ -49,4 +51,8 @@ public class Item {
     public void setItem_id(int item_id) {
         this.item_id = item_id;
     }
+
+    public byte[] getImage() { return image; }
+
+    public void setImage(byte[] image) { this.image = image; }
 }

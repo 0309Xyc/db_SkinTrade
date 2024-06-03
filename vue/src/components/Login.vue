@@ -38,19 +38,21 @@ export default {
   },
   methods: {
     handleLogin() {
-      request.post("/User/login",this.User).then(res =>{
+      request.post("/user/login",this.User).then(res =>{
         // 管理员账号和密码
         const adminUsername = 'root';
         const adminPassword = 'root';
 
         if(this.User.username === adminUsername && this.User.password === adminPassword){//管理员登录
+          localStorage.setItem("user",JSON.stringify(res.data));
           this.isLogin=false
           router.push({path:'/MainContent'});
         } else if(res.code===1){//用户登录
+          localStorage.setItem("user",JSON.stringify(res.data));
           this.isLogin=false
           router.push({path:'/MainContent'});
         } else {
-          this.error = '账号或密码错误';
+          this.error = res.msg;
         }
       })
     },

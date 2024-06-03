@@ -43,11 +43,11 @@ export default {
   },
   methods: {
     register() {
-      request.post("/User/register",this.User).then(res =>{
+      request.post("/user/register",this.User).then(res =>{
         if(res.code===1) {//成功
           router.push({path:'/login'});
         } else {//失败
-          this.error = '注册失败';
+          this.error = res.msg;
         }
       });
     }

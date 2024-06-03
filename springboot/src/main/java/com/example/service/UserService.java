@@ -33,11 +33,11 @@ public class UserService {
         if(user.getUsername()==null || "".equals(user.getUsername())) {
             throw new CustomException("用户名不能为空！");
         }
-        if(user.getPassword()==null || "".equals(user.getPassword())) {
-            throw new CustomException("密码不能为空！");
-        }
         if(user.getEmail()==null || "".equals(user.getEmail())) {
             throw new CustomException("邮箱不能为空！");
+        }
+        if(user.getPassword()==null || "".equals(user.getPassword())) {
+            throw new CustomException("密码不能为空！");
         }
         User user1 = userMapper.findByUsername(user.getUsername());
         if(user1!=null) {
@@ -60,5 +60,13 @@ public class UserService {
             throw new CustomException("用户名或密码错误！");
         }
         return user1;
+    }
+
+    public User changePassword(User user) {
+        return userMapper.changePassword(user.getUsername(),user.getPassword());
+    }
+
+    public User changeEmail(User user) {
+        return userMapper.changeEmail(user.getUsername(),user.getEmail());
     }
 }

@@ -7,6 +7,14 @@
         <ElMenuItem index="/Trade">交易</ElMenuItem>
         <ElMenuItem index="/User">我</ElMenuItem>
         <ElMenuItem ><input></ElMenuItem>
+<!--        <el-dropdown style="float:right;height: 50px;line-height: 50px;">
+          <span class="el-dropdown-link" style="color :cornflowerblue; font-size: 16px">下拉菜单<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i></span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>修改邮箱</el-dropdown-item>
+            <el-dropdown-item>修改密码</el-dropdown-item>
+            <el-dropdown-item>退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>-->
       </ElMenu>
     </ElHeader>
     <ElContainer>
@@ -89,5 +97,12 @@ export default {
   color: white;
   border-radius: 20px;
   font-size: 20px;
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409EFF;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
 }
 </style>

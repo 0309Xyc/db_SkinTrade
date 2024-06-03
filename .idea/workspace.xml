@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392274af-b15b-43a5-8b13-011f6ee2addc" name="更改" comment="second commit">
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/pojo/Params.java" afterDir="false" />
+    <list default="true" id="392274af-b15b-43a5-8b13-011f6ee2addc" name="更改" comment="分页查询">
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/ItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/ItemMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/pojo/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/pojo/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/MainContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/MainContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Storage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Storage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -82,7 +89,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="springboot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.SpringbootApplication" />
@@ -122,7 +129,9 @@
       <option name="presentableId" value="Default" />
       <updated>1716911140155</updated>
       <workItem from="1716911141702" duration="2384000" />
-      <workItem from="1716982020142" duration="4415000" />
+      <workItem from="1716982020142" duration="8813000" />
+      <workItem from="1717044573472" duration="3000" />
+      <workItem from="1717391399969" duration="15001000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <option name="closed" value="true" />
@@ -132,14 +141,42 @@
       <option name="project" value="LOCAL" />
       <updated>1716911866254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="分页查询">
+      <option name="closed" value="true" />
+      <created>1716987021663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716987021663</updated>
+    </task>
+    <task id="LOCAL-00003" summary="分页查询">
+      <option name="closed" value="true" />
+      <created>1716987167602</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716987167602</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
+    <MESSAGE value="分页查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="分页查询" />
   </component>
 </project>

@@ -11,7 +11,7 @@
     </ElHeader>
     <ElContainer>
       <ElAside width="200px" height="400px">
-        <ElMenu mode="horizontal" default-active="this.$route.path" router>
+<!--        <ElMenu mode="horizontal" default-active="this.$route.path" router>&lt;!&ndash;
           <ElMenuItem index="/ButterFlyKnife">
             蝴蝶刀
           </ElMenuItem>
@@ -20,18 +20,18 @@
           </ElMenuItem>
           <ElMenuItem>
 
-          </ElMenuItem>
-        </ElMenu>
+          </ElMenuItem>&ndash;&gt;
+        </ElMenu>-->
       </ElAside>
     </ElContainer>
     <ElContainer>
       <ElMain>
         <ElRow>
-          <ElCol :span="6" v-for="image in imageList" :key="image.id">
+<!--          <ElCol :span="6" v-for="image in imageList" :key="image.id">
             <ElImage :src="image.url" alt="图片" @click="showimage(image)">
 
             </ElImage>
-          </ElCol>
+          </ElCol>-->
 
         </ElRow>
       </ElMain>
@@ -39,11 +39,8 @@
 
   </ElContainer>
 
-
-
-
-
 </template>
+
 
 <script>
 import {ElContainer} from "element-plus";
@@ -54,31 +51,52 @@ import {ElImage} from "element-plus";
 import {ElCarousel} from "element-plus";
 import {ElRow} from "element-plus";
 import {ElCol} from "element-plus";
+import request from "@/utils/request.js";
 export default {
   name: "Storage",
   data(){
 
     return{
-      imageList:[
-        {
-          id:1,
-          Name:'butterflyknife1',
-          patten:'fade',
-          url:'https://th.bing.com/th/id/OIP.nOVCTYsNaPeQSYxXr9vz_gHaEh?rs=1&pid=ImgDetMain'
-        },
-        {
-          id:2,
-          Name:'butterflyknife2',
-          patten:'fade',
-          url:'https://th.bing.com/th/id/OIP.rTOulXKesi3z83KHowLZpgHaEh?pid=ImgDet&w=204&h=124&c=7&dpr=1.5'
-        }
-      ]
+      user:localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):{},
+      inventory: [],
+      newItem: {
+        wear: '',
+        skin_name: '',
+        weapon_type: '',
+        image: null
+      },
+      error:''
     }
   },
-
+  created() {
+    this.fetchInventory();
+  },
   methods:{
-    showimage(image){
-      alert(`ID: ${image.id}, Pattern: ${image.patten}`);
+    fetchInventory() {
+      const userId = this.user.user_id;
+      request.get(`/item/getitem?user_id=${userId}`)
+          .then(res => {
+            if(res.code===1){
+              this.inventory = res.data;
+            } else {
+              this.error=res.msg;
+            }
+          });
+    },
+    onFileChange(event) {
+      const file = event.target.files[0];
+      this.newItem.image = file;
+    },
+    addItem() {
+      const userId = this.user.user_id;
+      request.post(`/item/additem?user_id=${userId}`, this.newItem)
+          .then(res => {
+            if(res.code===1){
+              this.fetchInventory(); // 更新库存显示
+            } else {
+              this.error=res.msg;
+            }
+          });
     }
   }
 }

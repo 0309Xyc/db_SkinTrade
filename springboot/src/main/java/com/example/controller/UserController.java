@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController {
 
     @Resource
@@ -40,6 +40,18 @@ public class UserController {
     public Result findBySearch(Params params) {
         PageInfo<User> info = userService.findBySearch(params);
         return Result.success(info);
+    }
+
+    @PostMapping("/changePassword")
+    public Result changePassword(@RequestBody User user) {
+        User changePasswordUser = userService.changePassword(user);
+        return Result.success(changePasswordUser);
+    }
+
+    @PostMapping("/changeEmail")
+    public Result changeEmail(@RequestBody User user) {
+        User changeEmailUser = userService.changeEmail(user);
+        return Result.success(changeEmailUser);
     }
 
 }
