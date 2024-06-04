@@ -45,7 +45,7 @@ export default {
     register() {
       request.post("/user/register",this.User).then(res =>{
         if(res.code===1) {//成功
-          router.push({path:'/login'});
+          router.push({path:'/'});
         } else {//失败
           this.error = res.msg;
         }

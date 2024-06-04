@@ -5,6 +5,7 @@
         <ElMenuItem index="/MainContent">首页</ElMenuItem>
         <ElMenuItem index="/Storage">库存</ElMenuItem>
         <ElMenuItem index="/Trade">交易</ElMenuItem>
+        <ElMenuItem index="/News">咨讯</ElMenuItem>
         <ElMenuItem index="/User">我</ElMenuItem>
         <ElMenuItem ><input></ElMenuItem>
       </ElMenu>

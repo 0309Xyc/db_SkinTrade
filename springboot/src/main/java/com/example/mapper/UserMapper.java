@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.example.pojo.Params;
 import com.example.pojo.User;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -30,8 +31,11 @@ public interface UserMapper extends Mapper<User> {
     void insertUser(@Param("username")String username,@Param("password")String password,@Param("email")String email);
 
     @Update("update user set password = #{password} where username = #{username}")
-    User changePassword(@Param("username")String username,@Param("password")String password);
+    void changePassword(@Param("username")String username,@Param("password")String password);
 
     @Update("update user set email = #{email} where username = #{username}")
-    User changeEmail(@Param("username")String username,@Param("email")String email);
+    void changeEmail(@Param("username")String username,@Param("email")String email);
+
+    @Select("select user_id,username,password,balance,email from user where user_id = #{user_id}")
+    List<User> findById(@Param("user_id")int user_id);
 }

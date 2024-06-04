@@ -42,16 +42,22 @@ public class UserController {
         return Result.success(info);
     }
 
+    @GetMapping("/findById")
+    public Result findBySearch(@RequestParam("user_id") int user_id) {
+        List<User> list = userService.findById(user_id);
+        return Result.success(list);
+    }
+
     @PostMapping("/changePassword")
     public Result changePassword(@RequestBody User user) {
-        User changePasswordUser = userService.changePassword(user);
-        return Result.success(changePasswordUser);
+        userService.changePassword(user);
+        return Result.success();
     }
 
     @PostMapping("/changeEmail")
     public Result changeEmail(@RequestBody User user) {
-        User changeEmailUser = userService.changeEmail(user);
-        return Result.success(changeEmailUser);
+        userService.changeEmail(user);
+        return Result.success();
     }
 
 }

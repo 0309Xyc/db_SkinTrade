@@ -2,11 +2,10 @@ package com.example.controller;
 
 import com.example.common.Result;
 import com.example.pojo.Item;
+import com.example.pojo.User;
 import com.example.service.ItemService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.SQLException;
 import java.util.List;
 
 @CrossOrigin
@@ -26,6 +25,12 @@ public class ItemController {
     @GetMapping("/getItem")
     public Result getItem(@RequestParam("user_id") int user_id) {
         List<Item> list = itemService.getItem(user_id);
+        return Result.success(list);
+    }
+
+    @GetMapping("/getItemById")
+    public Result getItemById(@RequestParam("item_id") int item_id) {
+        List<Item> list = itemService.getItemById(item_id);
         return Result.success(list);
     }
 }

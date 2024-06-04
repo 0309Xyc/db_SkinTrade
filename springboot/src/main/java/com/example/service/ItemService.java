@@ -36,4 +36,8 @@ public class ItemService {
     public List<Item> getItem(int user_id) {
         return itemMapper.getItem(user_id);
     }
+
+    public List<Item> getItemById(int item_id) {
+        return itemMapper.getItemById(item_id);
+    }
 }

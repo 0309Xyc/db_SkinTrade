@@ -62,11 +62,15 @@ public class UserService {
         return user1;
     }
 
-    public User changePassword(User user) {
-        return userMapper.changePassword(user.getUsername(),user.getPassword());
+    public void changePassword(User user) {
+        userMapper.changePassword(user.getUsername(),user.getPassword());
     }
 
-    public User changeEmail(User user) {
-        return userMapper.changeEmail(user.getUsername(),user.getEmail());
+    public void changeEmail(User user) {
+        userMapper.changeEmail(user.getUsername(),user.getEmail());
+    }
+
+    public List<User> findById(int user_id) {
+        return userMapper.findById(user_id);
     }
 }

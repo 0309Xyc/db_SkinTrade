@@ -5,31 +5,14 @@
         <ElMenuItem index="/MainContent">首页</ElMenuItem>
         <ElMenuItem index="/Storage">库存</ElMenuItem>
         <ElMenuItem index="/Trade">交易</ElMenuItem>
+        <ElMenuItem index="/News">咨讯</ElMenuItem>
         <ElMenuItem index="/User">我</ElMenuItem>
         <ElMenuItem ><input></ElMenuItem>
-<!--        <el-dropdown style="float:right;height: 50px;line-height: 50px;">
-          <span class="el-dropdown-link" style="color :cornflowerblue; font-size: 16px">下拉菜单<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i></span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>修改邮箱</el-dropdown-item>
-            <el-dropdown-item>修改密码</el-dropdown-item>
-            <el-dropdown-item>退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>-->
       </ElMenu>
     </ElHeader>
     <ElContainer>
       <ElAside width="200px" height="400px">
-        <ElMenu mode="horizontal" default-active="this.$route.path" router>
-          <ElMenuItem index="/ButterFlyKnife">
-            蝴蝶刀
-          </ElMenuItem>
-          <ElMenuItem index="/M9">
-            M9-刺刀
-          </ElMenuItem>
-          <ElMenuItem>
 
-          </ElMenuItem>
-        </ElMenu>
       </ElAside>
     </ElContainer>
 
@@ -59,22 +42,25 @@ import {ElMain} from "element-plus";
 import {ElImage} from "element-plus";
 import {ElCarousel} from "element-plus";
 
+
 export default {
   name: "MainContent",
-  data(){
-    return{
-      imgList:[
+  data() {
+    return {
+
+      imgList: [
         {
-          id:1,
-          url:'https://th.bing.com/th/id/OIP.nOVCTYsNaPeQSYxXr9vz_gHaEh?rs=1&pid=ImgDetMain'
+          id: 1,
+          url: 'https://igstatic.igxe.cn/steam/image/730/d2d7a36fadffb79c1a4e07cc075f58a8.png'
         },
         {
-          id:2,
-          url:'https://th.bing.com/th/id/OIP.rTOulXKesi3z83KHowLZpgHaEh?pid=ImgDet&w=204&h=124&c=7&dpr=1.5'
+          id: 2,
+          url: 'https://igstatic.igxe.cn/steam/image/730/b3f6384a49576988a93a704d23a12a72.png'
         }
       ]
     }
   }
+
 }
 </script>
 
@@ -97,12 +83,5 @@ export default {
   color: white;
   border-radius: 20px;
   font-size: 20px;
-}
-.el-dropdown-link {
-  cursor: pointer;
-  color: #409EFF;
-}
-.el-icon-arrow-down {
-  font-size: 12px;
 }
 </style>

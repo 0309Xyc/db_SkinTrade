@@ -46,7 +46,7 @@ export default {
         if(this.User.username === adminUsername && this.User.password === adminPassword){//管理员登录
           localStorage.setItem("user",JSON.stringify(res.data));
           this.isLogin=false
-          router.push({path:'/MainContent'});
+          router.push({path:'/Admin'});
         } else if(res.code===1){//用户登录
           localStorage.setItem("user",JSON.stringify(res.data));
           this.isLogin=false
