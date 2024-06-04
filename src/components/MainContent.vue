@@ -51,22 +51,25 @@ import {ElMain} from "element-plus";
 import {ElImage} from "element-plus";
 import {ElCarousel} from "element-plus";
 
+
 export default {
   name: "MainContent",
-  data(){
-    return{
-      imgList:[
+  data() {
+    return {
+
+      imgList: [
         {
-          id:1,
-          url:'https://th.bing.com/th/id/OIP.nOVCTYsNaPeQSYxXr9vz_gHaEh?rs=1&pid=ImgDetMain'
+          id: 1,
+          url: 'https://igstatic.igxe.cn/steam/image/730/d2d7a36fadffb79c1a4e07cc075f58a8.png'
         },
         {
-          id:2,
-          url:'https://th.bing.com/th/id/OIP.rTOulXKesi3z83KHowLZpgHaEh?pid=ImgDet&w=204&h=124&c=7&dpr=1.5'
+          id: 2,
+          url: 'https://igstatic.igxe.cn/steam/image/730/b3f6384a49576988a93a704d23a12a72.png'
         }
       ]
     }
   }
+
 }
 </script>
 

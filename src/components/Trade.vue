@@ -26,9 +26,25 @@
     </ElContainer>
     <ElMain>
       <ElRow gutter="20">
-        <ElCol :span="6" v-for="image in imgList" :key="image.id">
+        <ElPopover :visible="visible" placement="top" :width="160">
+        <p>Are you sure to buy this?</p>
+        <div style="text-align: right; margin: 0">
+          <ElButton size="small" text @click="visible = false">cancel</ElButton>
+          <ElButton size="small" type="primary" @click="visible = false">confirm</ElButton>
+        </div>
+        <template #reference>
+          <ElButton @click="visible = true">
+            BUY
+            <div>
+              <ElCol :span="6" v-for="image in imgList" :key="image.id">
+                <ElImage :src="image.url" alt="图片" @click="showimage(image)">
 
-        </ElCol>
+                </ElImage>
+              </ElCol>
+            </div>
+          </ElButton>
+        </template>
+      </ElPopover>
 
       </ElRow>
     </ElMain>
@@ -50,17 +66,28 @@ import {ElImage} from "element-plus";
 import {ElCarousel} from "element-plus";
 import {ElRow} from "element-plus";
 import {ElCol} from "element-plus";
+import {ElButton} from "element-plus";
 
 export default {
   name: "Trade",
   data(){
     return{
+      visible:false,
       imgList:[
           {
             id:1,
-            url:'https://th.bing.com/th/id/OIP.nOVCTYsNaPeQSYxXr9vz_gHaEh?rs=1&pid=ImgDetMain'
+            Name:'butterflyknife',
+            patten:'op',
+            price:10000,
+            url:'https://igstatic.igxe.cn/steam/image/730/d2d7a36fadffb79c1a4e07cc075f58a8.png'
           }
       ]
+    }
+  },
+  methods:{
+    showimage(image){
+      alert(`ID: ${image.id}, Pattern: ${image.patten},Price: ${image.price}`);
+
     }
   }
 }

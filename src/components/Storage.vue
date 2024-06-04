@@ -64,13 +64,13 @@ export default {
           id:1,
           Name:'butterflyknife1',
           patten:'fade',
-          url:'https://th.bing.com/th/id/OIP.nOVCTYsNaPeQSYxXr9vz_gHaEh?rs=1&pid=ImgDetMain'
+          url:'https://igstatic.igxe.cn/steam/image/730/d2d7a36fadffb79c1a4e07cc075f58a8.png'
         },
         {
           id:2,
           Name:'butterflyknife2',
           patten:'fade',
-          url:'https://th.bing.com/th/id/OIP.rTOulXKesi3z83KHowLZpgHaEh?pid=ImgDet&w=204&h=124&c=7&dpr=1.5'
+          url:'https://igstatic.igxe.cn/steam/image/730/b3f6384a49576988a93a704d23a12a72.png'
         }
       ]
     }
